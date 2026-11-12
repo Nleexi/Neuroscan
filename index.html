@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NeuroScan — второе мнение для рентгенолога</title>
+<style>
+:root{--bg:#f3eee4;--sf:#fbf8f2;--tx:#1b1830;--mu:#5d586f;--ac:#5b3df5;--ac2:#ff6a4d;--bd:#ddd5c4;--on:#fff;--wn:#ffe9d6;--wt:#8a3200;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13111f;--sf:#1c1930;--tx:#efeaff;--mu:#a9a3c4;--ac:#a595ff;--ac2:#ff8a70;--bd:#33305a;--on:#14112a;--wn:#33201a;--wt:#ffb59d}}
+:root[data-theme="dark"]{--bg:#13111f;--sf:#1c1930;--tx:#efeaff;--mu:#a9a3c4;--ac:#a595ff;--ac2:#ff8a70;--bd:#33305a;--on:#14112a;--wn:#33201a;--wt:#ffb59d}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:960px;margin:0 auto;padding:0 18px}
+h1,h2,h3,.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700}
+h1{font-size:clamp(34px,8vw,64px);line-height:1.05;margin:0 0 18px;letter-spacing:-.02em}
+h2{font-size:clamp(26px,5vw,38px);margin:0 0 10px}h3{font-size:20px;margin:0 0 6px}
+p{margin:0 0 12px}.mu{color:var(--mu)}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--bd);padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;align-items:center;gap:18px;padding:10px 0}
+.logo{font-size:22px;color:var(--ac);white-space:nowrap}
+nav{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:none}
+nav a{padding:7px 12px;border-radius:99px;color:var(--tx);text-decoration:none;font-size:15px;white-space:nowrap}
+nav a.on{background:var(--ac);color:var(--on)}
+.view{padding:40px 0 56px}[hidden]{display:none!important}
+.btn{display:inline-block;background:var(--ac2);color:#1b0a05;border:0;border-radius:4px;padding:14px 24px;font:700 16px inherit;text-decoration:none;cursor:pointer}
+.btn.o{background:none;color:var(--tx);border:2px solid var(--tx)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.kick{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac2);font-weight:700;margin-bottom:10px}
+.two{display:grid;gap:28px}@media(min-width:800px){.two{grid-template-columns:1.1fr .9fr;align-items:center}}
+.list{border-top:2px solid var(--tx);margin-top:20px}
+.li{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:18px 0;border-bottom:1px solid var(--bd)}
+.li b.nm{font:700 28px Georgia,serif;color:var(--ac)}
+.cols{display:grid;gap:14px;margin-top:18px}@media(min-width:700px){.cols{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:4px;padding:18px;border-top:4px solid var(--ac)}
+.card.b{border-top-color:var(--ac2)}
+.note{background:var(--wn);color:var(--wt);padding:12px 14px;border-radius:4px;font-size:14px;margin-top:16px}
+.cmp{position:relative;aspect-ratio:1/1;border:2px solid var(--tx);overflow:hidden;background:#000;user-select:none}
+.xr{position:absolute;inset:0;background:radial-gradient(ellipse 22% 38% at 33% 48%,#8a8a8a,#3e3e3e 65%,transparent),radial-gradient(ellipse 22% 38% at 67% 48%,#8a8a8a,#3e3e3e 65%,transparent),radial-gradient(ellipse 7% 30% at 50% 50%,#c4c4c4,transparent),#141414}
+.ai{position:absolute;left:58%;top:34%;width:16%;height:16%;border:2px solid #ff6a4d;border-radius:50%}
+.ai::after{content:"Область внимания";position:absolute;top:105%;left:-30%;white-space:nowrap;font-size:11px;color:#ff8a70}
+.cap{position:absolute;top:8px;font-size:12px;background:#000b;color:#fff;padding:2px 8px}
+#top{position:absolute;inset:0}
+.cmp input{position:absolute;left:0;right:0;bottom:8px;width:100%;margin:0}
+label{display:block;font-size:14px;margin:12px 0 4px;font-weight:600}
+input[type=text],input[type=email],input[type=number],select{width:100%;padding:12px;border:1.5px solid var(--tx);border-radius:4px;background:var(--sf);color:var(--tx);font:inherit}
+.res{font:700 30px Georgia,serif;color:var(--ac);margin:0}
+footer{border-top:1px solid var(--bd);padding:22px 0 30px;font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="w bar"><a class="logo" href="#home" style="text-decoration:none">NeuroScan</a>
+<nav id="nav"><a href="#home">Главная</a><a href="#product">Продукт</a><a href="#safety">Безопасность</a><a href="#economics">Экономика</a><a href="#cases">Кейсы</a><a href="#demo">Демо</a></nav></div></header>
 
+<main class="w">
+<div class="view" data-v="home">
+<div class="two"><div>
+<div class="kick">ИИ-ассистент врача-рентгенолога</div>
+<h1>Второе мнение — за секунды.</h1>
+<p class="mu" style="font-size:18px">NeuroScan подсвечивает на снимке области, которые стоит перепроверить. Заключение пишет и подписывает врач.</p>
+<div class="row"><a class="btn" href="#demo">Запросить демодоступ</a><a class="btn o" href="#product">Как это работает</a></div></div>
+<div><div class="cmp" aria-label="Сравнение до и после (иллюстрация)">
+<div class="xr"></div><span class="cap" style="left:8px">До</span>
+<div id="top"><div class="xr"></div><div class="ai"></div><span class="cap" style="right:8px">После · ИИ</span></div>
+<input type="range" min="0" max="100" value="50" id="rng" aria-label="Сравнить до и после"></div>
+<p class="mu" style="font-size:13px;margin-top:6px">Схематичная иллюстрация, не реальный снимок.</p></div></div>
+<div class="cols">
+<div class="card"><h3>Врач решает</h3><p class="mu">ИИ не ставит диагноз.</p></div>
+<div class="card b"><h3>До 30 секунд*</h3><p class="mu">На предварительный анализ снимка.</p></div>
+<div class="card"><h3>Для руководителей</h3><p class="mu">Главные врачи, диагностические центры, ИТ-директора сетей.</p></div></div>
+<p class="mu" style="font-size:13px;margin-top:10px">* Время уточняется при тестировании на данных клиники.</p>
+</div>
+
+<div class="view" data-v="product" hidden>
+<div class="kick">Продукт</div><h2>Проблемы клиник и наши ответы</h2>
+<div class="cols">
+<div class="card"><h3>Нагрузка</h3><p class="mu">Растёт поток исследований → ассистент делает первичный разбор.</p></div>
+<div class="card b"><h3>Пропуски</h3><p class="mu">Усталость и спешка → подсветка зон для перепроверки.</p></div>
+<div class="card"><h3>Ожидание</h3><p class="mu">Очередь на описание → быстрее старт работы врача.</p></div></div>
+<h2 style="margin-top:36px">Как работает система</h2>
+<div class="list">
+<div class="li"><b class="nm">01</b><div><h3>Снимок поступает</h3><p class="mu">Из PACS или системы клиники.</p></div></div>
+<div class="li"><b class="nm">02</b><div><h3>Анализ нейросетью</h3><p class="mu">Предварительная обработка исследования.</p></div></div>
+<div class="li"><b class="nm">03</b><div><h3>Подсказки на снимке</h3><p class="mu">Области внимания видны врачу.</p></div></div>
+<div class="li"><b class="nm">04</b><div><h3>Решение врача</h3><p class="mu">Подтверждает или отклоняет подсказку и пишет заключение.</p></div></div></div>
+</div>
+
+<div class="view" data-v="safety" hidden>
+<div class="kick">Доверие</div><h2>Точность и безопасность</h2>
+<div class="cols">
+<div class="card"><h3>Роль ИИ</h3><p class="mu">Вспомогательное «второе мнение». Окончательное решение — за врачом.</p></div>
+<div class="card b"><h3>Данные</h3><p class="mu">Работа с персональными данными по требованиям законодательства; схема размещения согласуется с клиникой.</p></div>
+<div class="card"><h3>Метрики</h3><p class="mu">Точность оценивается на данных клиники в пилоте и публикуется только после подтверждения.</p></div></div>
+<p class="note">Регистрация и клинические испытания: <b>[будут добавлены после предоставления подтверждающих документов]</b>. Непроверенные номера и результаты мы не публикуем.</p>
+</div>
+
+<div class="view" data-v="economics" hidden>
+<div class="kick">Экономика</div><h2>Посчитайте на своих цифрах</h2>
+<p class="mu">Процент экономии — ваше допущение, а не обещание продукта.</p>
+<div class="two" style="margin-top:14px"><div>
+<label>Исследований в месяц</label><input type="number" id="a" value="3000" min="0">
+<label>Минут на описание одного</label><input type="number" id="b" value="10" min="0">
+<label>Допущение экономии времени, %</label><input type="number" id="p" value="10" min="0" max="100">
+<label>Стоимость часа врача, ₽</label><input type="number" id="r" value="1000" min="0"></div>
+<div class="card b"><p class="mu">Условная экономия в месяц</p><p class="res" id="o1">—</p><p class="res" id="o2">—</p></div></div>
+</div>
+
+<div class="view" data-v="cases" hidden>
+<div class="kick">Кейсы</div><h2>Кейсы и отзывы</h2>
+<div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div class="card"><h3>[Кейс клиники]</h3><p class="mu">Шаблон: задача → внедрение → измеренный результат. Только реальные подтверждённые данные.</p></div>
+<div class="card b"><h3>[Отзыв главного врача]</h3><p class="mu">Шаблон: цитата, должность, организация — после письменного согласия автора.</p></div></div>
+</div>
+
+<div class="view" data-v="demo" hidden>
+<div class="kick">Демо</div><h2>Запросите демодоступ</h2>
+<p class="mu">Оставьте контакты — свяжемся и согласуем пилот.</p>
+<form id="f" style="max-width:520px">
+<label>ФИО</label><input type="text" required>
+<label>Клиника / сеть</label><input type="text" required>
+<label>Должность</label><select><option>Главный врач</option><option>Руководитель диагностического центра</option><option>ИТ-директор</option><option>Другое</option></select>
+<label>Рабочий email</label><input type="email" required>
+<div class="row"><button class="btn" type="submit">Получить демодоступ</button></div>
+<p id="ok" class="note" hidden>Заявка подготовлена. Если письмо не открылось, нажмите: <a id="ml" href="mailto:spam.nleexi@gmail.com" target="_top">отправить на почту</a>. Заявка уйдёт после отправки письма.</p></form>
+</div>
+</main>
+<footer><div class="w mu">© NeuroScan. Учебный проект-макет. Продукт — вспомогательное средство и не заменяет заключение врача.</div></footer>
+<script>
+var vs=document.querySelectorAll('.view'),ls=document.querySelectorAll('#nav a');
+function route(){var h=location.hash.slice(1)||'home',ok=false;vs.forEach(function(v){if(v.dataset.v===h)ok=true});if(!ok)h='home';
+vs.forEach(function(v){v.hidden=v.dataset.v!==h});ls.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);route();
+var t=document.getElementById('top');function sl(x){t.style.clipPath='inset(0 0 0 '+x+'%)'}sl(50);
+document.getElementById('rng').oninput=function(e){sl(e.target.value)};
+function calc(){var v=function(i){return +document.getElementById(i).value||0},h=v('a')*v('b')/60*v('p')/100,f=function(x){return Math.round(x).toLocaleString('ru-RU')};
+document.getElementById('o1').textContent='≈ '+f(h)+' ч врачей';document.getElementById('o2').textContent='≈ '+f(h*v('r'))+' ₽'}
+['a','b','p','r'].forEach(function(i){document.getElementById(i).oninput=calc});calc();
+document.getElementById('f').onsubmit=function(e){e.preventDefault();var q=e.target.querySelectorAll('input,select'),n=['ФИО','Клиника / сеть','Должность','Email'],b='';
+for(var i=0;i<q.length;i++)b+=n[i]+': '+q[i].value+'\n';
+var u='mailto:spam.nleexi@gmail.com?subject='+encodeURIComponent('Заявка на демодоступ NeuroScan')+'&body='+encodeURIComponent(b),a=document.getElementById('ml');a.href=u;document.getElementById('ok').hidden=false;a.click()};
+</script>
+</body>
+</html>
